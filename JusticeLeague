@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justice League - Official</title>
+    <style>
+        /* General Setup */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Updated to match your uploaded image name */
+            background: url('image_646bf4.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+            background-color: #0b0d11; 
+        }
+
+        /* Golden Rocky Title Style */
+        .main-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(5px 5px 3px rgba(0,0,0,0.9));
+            margin: 40px 0 10px 0;
+            letter-spacing: 3px;
+            display: inline-block;
+        }
+
+        /* Fixed Back Button */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #cf9d30, #996515);
+            color: black;
+            border: none;
+            padding: 12px 25px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 50px;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: 0.3s;
+        }
+        .back-btn:hover { transform: scale(1.1); background: #ffefbb; }
+
+        /* Grid for Categories */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 25px;
+            padding: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Square Button Styles */
+        .box {
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        }
+
+        .box:hover { transform: translateY(-10px); box-shadow: 0 12px 30px rgba(0,0,0,0.8); }
+
+        /* Box Colors */
+        .blue { background: #2980b9; }
+        .red { background: #c0392b; }
+        .yellow { background: #f1c40f; color: black; }
+        .green { background: #27ae60; }
+        .purple { background: #8e44ad; }
+        .orange { background: #d35400; }
+
+        /* Gold Rectangle */
+        .gold-rect {
+            grid-column: 1 / -1;
+            background: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728);
+            color: #2c3e50;
+            padding: 20px;
+            font-weight: 900;
+            font-size: 1.6rem;
+            border-radius: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Internal Pages */
+        .page {
+            display: none;
+            padding: 80px 20px;
+            background: rgba(0,0,0,0.85);
+            min-height: 100vh;
+        }
+
+        .names-list {
+            font-size: 1.6rem;
+            line-height: 2.8;
+            max-width: 900px;
+            margin: 30px auto;
+            color: #ffefbb;
+        }
+
+        /* Unique Styles for Golden Page Content */
+        .chapter { display: block; margin: 25px 0; font-size: 2.2rem; font-weight: bold; }
+        .c1 { font-family: 'Courier New'; color: #00ff00; }
+        .c2 { font-family: 'Georgia'; color: #ff00ff; }
+        .c3 { color: #e74c3c; letter-spacing: 5px; border: 1px solid #e74c3c; display: inline-block; padding: 5px; }
+        .c4 { font-family: 'Times New Roman'; color: #bdc3c7; font-style: italic; }
+        .c5 { color: #f1c40f; text-shadow: 0 0 10px gold; }
+        .c6 { font-family: 'Impact'; color: #2ecc71; }
+        .c7 { color: #3498db; text-decoration: underline; }
+        .c8 { font-variant: small-caps; color: #e67e22; }
+        .c9 { background: #c0392b; color: white; padding: 5px 15px; border-radius: 50px; display: inline-block; }
+        .c10 { -webkit-text-stroke: 1px gold; color: transparent; font-size: 2.8rem; }
+        .c11 { background: linear-gradient(to right, red, orange, yellow, green, blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    </style>
+</head>
+<body>
+
+    <button class="back-btn" onclick="showHome()">⬅ BACK</button>
+
+    <div id="home-page">
+        <h1 class="main-title">Justice-League</h1>
+        <div class="grid-container">
+            <div class="box blue" onclick="showPage('hashira')">Hashira</div>
+            <div class="box red" onclick="showPage('villains')">Villains</div>
+            <div class="box yellow" onclick="showPage('girls')">Girls</div>
+            <div class="box green" onclick="showPage('legion')">Legion</div>
+            <div class="box purple" onclick="showPage('old-folks')">Old Folks</div>
+            <div class="box orange" onclick="showPage('assassins')">Assassins</div>
+            <div class="gold-rect" onclick="showPage('golden-chapters')">All Parts Full Edition</div>
+        </div>
+    </div>
+
+    <div id="hashira" class="page"><h2>The Hashira</h2><div class="names-list">Zein 🌊 - Peter 🔥 - Fares ⭐ - Marvin 🪨 - Rafy 🌑 - Baraa 🌩️ - Mohamed ⚡</div></div>
+    <div id="villains" class="page"><h2>The Villains</h2><div class="names-list">Muzan 🩸 - Upper Moon 1 🩸 - Upper Moon 2 🩸 - Upper Moon 3 🩸 - Upper Moon 4 🩸 - Upper Moon 5 🩸 - Upper Moon 6 🩸 - Upper Moon 7 🩸 - Dark Trinity ☝🏻 - Hydra ⚔️ - Ultron 💎 - Bloodline 💚 - MFT 💛 - Dark Squad 🏴 - Akatsuki 🌋</div></div>
+    <div id="girls" class="page"><h2>The Girls</h2><div class="names-list">Sara ♥️ - Masa ♥️ - Donia ♥️ - Irene ♥️ - Irene Sami ♥️ - Mikasa ♥️ - Jane ♥️ - Gwen ♥️ - Natalia ♥️ - Daniela ♥️ - Pretty ♥️ - Merola ♥️ - Rafet ♥️ - Tamayo ♥️ - Captain Justice Rana ♥️ - Mirna ♥️</div></div>
+    <div id="legion" class="page"><h2>The Legion</h2><div class="names-list">Seif 🗡️ - Mazen 🗡️ - Abdelrahman 🗡️ - Eyad 🗡️ - Basem 🗡️ - Eyad Walid 🗡️ - Ahmed Walid 🗡️ - Ahmed Ramadan 🗡️ - Anas 🗡️ - Osama 🗡️ - Helmy 🗡️ - Samih 🗡️ - Belal Maher 🗡️ - Belal Alaa 🗡️ - Adam Karam 🗡️ - Ziad 🗡️ - Islam 🗡️ - Youssef 🗡️ - Serag 🗡️ - Salem 🗡️ - Ramez 🗡️ - Bishoy 🗡️ - Andrew 🗡️ - Kirollos Adel 🗡️ - Kirollos Atef 🗡️ - Kirollos Nader 🗡️ - Fady 🗡️ - Shady 🗡️ - Fady Wassim 🗡️</div></div>
+    <div id="old-folks" class="page"><h2>Ancient Legends</h2><div class="names-list">Yoriichi ☀️ - Yuta 🐉 - Hashirama 🐯 - Tobirama 🐺</div></div>
+    <div id="assassins" class="page"><h2>The Assassins</h2><div class="names-list">Johnny 😎 - Hamza 😎 - Michael 😎 - Levi 😎 - Abdullah 😎 - Loki 😎 - Heimdall 😎 - Levi 😎</div></div>
+
+    <div id="golden-chapters" class="page">
+        <h2 style="color: gold;">STORY CHAPTERS</h2>
+        <div class="chapter c1">Start 1</div>
+        <div class="chapter c2">Start 2</div>
+        <div class="chapter c3">Civil war 2026</div>
+        <div class="chapter c4">The Past</div>
+        <div class="chapter c5">The Infinite Castle</div>
+        <div class="chapter c6">Hydra Foundation</div>
+        <div class="chapter c7">New Heroes</div>
+        <div class="chapter c8">Go Home</div>
+        <div class="chapter c9">Doomsday</div>
+        <div class="chapter c10">The Beginning of the End</div>
+        <div class="chapter c11">Stones of the Universe</div>
+    </div>
+
+    <script>
+        function showPage(id) {
+            document.getElementById('home-page').style.display = 'none';
+            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+            document.querySelector('.back-btn').style.display = 'block';
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+        function showHome() {
+            document.getElementById('home-page').style.display = 'block';
+            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+            document.querySelector('.back-btn').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
